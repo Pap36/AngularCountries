@@ -28,10 +28,30 @@ $Angular-Countries-theme: mat.define-light-theme((
   )
 ));
 
+$Angular-Countries-theme-dark: mat.define-dark-theme((
+  color: (
+    primary: $Angular-Countries-primary,
+    accent: $Angular-Countries-accent,
+    warn: $Angular-Countries-warn,
+  )
+));
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($Angular-Countries-theme);
+
+
+.light-theme{
+  @include mat.all-component-themes($Angular-Countries-theme);
+}
+
+.dark-theme{
+  @include mat.all-component-themes($Angular-Countries-theme-dark);
+  body{
+    color: black;
+  }
+}
 
 /* You can add global styles to this file, and also import other style files */
 

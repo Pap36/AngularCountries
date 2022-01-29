@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DarkModeComponent } from '../dark-mode/dark-mode.component';
 
 @Component({
   selector: 'app-toolbar',

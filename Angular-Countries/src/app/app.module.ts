@@ -12,6 +12,8 @@ import { FilterComponent } from './filter/filter.component';
 import { CountriesListComponent } from './countries-list/countries-list.component';
 import { CountryCardComponent } from './country-card/country-card.component';
 import { CountryPageComponent } from './country-page/country-page.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { CountryPageComponent } from './country-page/country-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -48,9 +48,9 @@ $Angular-Countries-theme-dark: mat.define-dark-theme((
 
 .dark-theme{
   @include mat.all-component-themes($Angular-Countries-theme-dark);
-  body{
-    color: black;
-  }
+  
+  background-color: black;
+  color: white;
 }
 
 /* You can add global styles to this file, and also import other style files */

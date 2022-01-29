@@ -2,3 +2,5 @@
 <app-searchbar (searchVal)="updateSearchCriteria($event)"></app-searchbar>
 <div></div>
 <app-filter (regionVal)="updateFilterCriteria($event)"></app-filter>
+<div></div>
+<app-countries-list [displayedCountries]="filteredCountries"></app-countries-list>

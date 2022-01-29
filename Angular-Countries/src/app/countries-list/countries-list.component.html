@@ -1,1 +1,5 @@
-<p>countries-list works!</p>
+<mat-grid-list cols="4">
+    <mat-grid-tile *ngFor="let country of displayedCountries">
+        <app-country-card [country]="country"></app-country-card>
+    </mat-grid-tile>
+</mat-grid-list>

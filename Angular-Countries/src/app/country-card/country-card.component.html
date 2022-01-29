@@ -1,1 +1,9 @@
-<p>country-card works!</p>
+<mat-card>
+    <img mat-card-image src={{country!.flags.png}}>
+    <mat-card-title>{{country!.name.common}}</mat-card-title>
+    <mat-card-content>
+        <p>Population: {{country!.population}}</p>
+        <p>Region: {{country!.region}}</p>
+        <p>Capital: {{country!.capital[0]}}</p>
+    </mat-card-content>
+</mat-card>

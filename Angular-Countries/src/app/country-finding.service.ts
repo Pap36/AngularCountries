@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Country } from './country';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,23 @@ export class CountryFindingService {
   private allCountries: Country[] = [];
   private searchVal: string = '';
   private regionVal: string = '';
+  private apiCallDone: boolean = false;
 
   constructor(private http: HttpClient) {}
 
-  getAllCountries(): void {
+  getAllCountries(): Observable<Country[]> {
     var dataObs = this.http.get<Country[]>(`${this.target}/all?fields=name,capital,currencies,flags,population,borders,region,subregion,tld,languages`);
-    dataObs.subscribe(value => {
-      this.allCountries = value;
-    })
+    return dataObs;
+  }
+
+  setAllCountries(countries: Country[]) {
+    this.allCountries = countries;
+    //log all regions just so we know;
+    // var regions: string[] = [];
+    // this.allCountries.forEach(country => {
+    //   if(!regions.includes(country.region)) regions.push(country.region);
+    // });
+    // console.log(regions);
   }
 
   setFilterParameters(sVal:string, rVal:string){
@@ -33,9 +43,14 @@ export class CountryFindingService {
     })
   }
 
+  getApiCAll(): boolean {
+    return this.apiCallDone;
+  }
+
   filterCountries(): Country[]{
     console.log(this.allCountries);
     return this.filterC(this.searchVal, this.regionVal);
   }
+
 
 }

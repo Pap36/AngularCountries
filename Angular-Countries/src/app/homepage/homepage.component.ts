@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Country } from '../country';
 import { CountryFindingService } from '../country-finding.service';
 import { SearchbarComponent } from '../searchbar/searchbar.component';
@@ -13,11 +13,23 @@ export class HomepageComponent implements OnInit {
   constructor(private countryFinding: CountryFindingService) { }
   private searchVal: string = '';
   private filterVal: string = '';
-  filteredCountries: Country[] = [];
+  apiCallDone: boolean = false;
+  filteredCountries?: Country[];
+
   ngOnInit(): void {
-    console.log("Now");
+    if(this.apiCallDone) this.getCountries();
+    else {
+      this.countryFinding.getAllCountries().subscribe(country => {
+        this.filteredCountries = country;
+        this.countryFinding.setAllCountries(this.filteredCountries);
+        this.getCountries();
+        this.apiCallDone = true;
+      })
+    }
+  }
+
+  getCountries() : void {
     this.filteredCountries = this.countryFinding.filterCountries();
-    console.log(this.filteredCountries);
   }
 
   updateSearchCriteria(val: string){

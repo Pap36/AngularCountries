@@ -1,1 +1,25 @@
-<p>country-page works!</p>
+<div>
+    <button (click)="goBack()">Go back</button>
+</div>
+<div *ngIf="apiDone">
+    <img src={{country!.flags.png}}>
+    <p>{{country!.name.common}}</p>
+    <p>{{country!.name.nativeName.official}}</p>
+    <p>{{country!.population}}</p>
+    <p>{{country!.region}}</p>
+    <p>{{country!.subregion}}</p>
+    <p>{{country!.capital}}</p>
+    <p>{{country!.tld}}</p>
+    <p><span *ngFor="let currency of currencies">
+        {{currency}}
+    </span></p>
+    <p><span *ngFor="let language of languages">
+        {{language}}
+    </span></p>
+    <p><span *ngFor="let code of country!.borders">
+        <a routerLink="/detail/{{code}}"><p>{{code}}</p></a>
+    </span></p>
+</div>
+<div *ngIf="!apiDone">
+    <app-loading-screen></app-loading-screen>
+</div>

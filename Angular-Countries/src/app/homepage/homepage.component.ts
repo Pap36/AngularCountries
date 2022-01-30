@@ -17,6 +17,7 @@ export class HomepageComponent implements OnInit {
   filteredCountries?: Country[];
 
   ngOnInit(): void {
+    this.apiCallDone = this.countryFinding.getApiCAll();
     if(this.apiCallDone) this.getCountries();
     else {
       this.countryFinding.getAllCountries().subscribe(country => {

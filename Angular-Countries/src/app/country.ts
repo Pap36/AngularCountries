@@ -1,28 +1,21 @@
 export interface Country {
     borders: string[],
     capital: string[],
-    currencies: Currency[],
+    currencies: Object,
     flags: Flag,
-    languages: Language[],
+    languages: Object,
     name: Name,
+    cca3: string,
     population: number,
     region: string,
     subregion: string,
     tld: string[]
 }
 
-export interface Currency {
-    name: string,
-    symbol: string
-}
 
 export interface Flag {
     png: string,
     svg: string,
-}
-
-export interface Language{
-    name: string,
 }
 
 export interface Name{

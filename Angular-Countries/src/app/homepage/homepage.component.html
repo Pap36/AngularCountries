@@ -4,4 +4,6 @@
 <app-filter (regionVal)="updateFilterCriteria($event)"></app-filter>
 <div></div>
 <app-countries-list *ngIf="apiCallDone" [displayedCountries]="filteredCountries"></app-countries-list>
-<div *ngIf="!apiCallDone">Loading...</div>
+<div *ngIf="!apiCallDone">
+    <app-loading-screen></app-loading-screen>
+</div>

@@ -20,6 +20,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     FilterComponent,
     CountriesListComponent,
     CountryCardComponent,
-    CountryPageComponent
+    CountryPageComponent,
+    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     HttpClientModule,
     MatCardModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

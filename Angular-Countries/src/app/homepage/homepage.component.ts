@@ -23,7 +23,7 @@ export class HomepageComponent implements OnInit {
         this.filteredCountries = country;
         this.countryFinding.setAllCountries(this.filteredCountries);
         this.getCountries();
-        this.apiCallDone = true;
+        setTimeout(() => this.apiCallDone = true, 1000);
       })
     }
   }

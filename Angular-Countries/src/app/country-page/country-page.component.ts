@@ -39,6 +39,8 @@ export class CountryPageComponent implements OnInit {
       this.country = this.countryFinding.findCountry(codeName);
       const langs = this.country.languages;
       const curr = this.country.currencies;
+      this.languages = [];
+      this.currencies = [];
       Object.entries(langs).forEach(([_, value]) => {
         this.languages.push(String(value));
       })
@@ -55,6 +57,8 @@ export class CountryPageComponent implements OnInit {
         this.country = country;
         const langs = this.country.languages;
         const curr = this.country.currencies;
+        this.languages = [];
+        this.currencies = [];
         Object.entries(langs).forEach(([_, value]) => {
           this.languages.push(String(value));
         })

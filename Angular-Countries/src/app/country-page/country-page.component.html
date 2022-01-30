@@ -1,23 +1,23 @@
 <div>
-    <button (click)="goBack()">Go back</button>
+    <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back </button>
 </div>
 <div *ngIf="apiDone">
     <img src={{country!.flags.png}}>
     <p>{{country!.name.common}}</p>
-    <p>{{country!.name.nativeName.official}}</p>
-    <p>{{country!.population}}</p>
-    <p>{{country!.region}}</p>
-    <p>{{country!.subregion}}</p>
-    <p>{{country!.capital}}</p>
-    <p>{{country!.tld}}</p>
-    <p><span *ngFor="let currency of currencies">
-        {{currency}}
+    <p>Native Name: {{country!.name.official}}</p>
+    <p>Population: {{country!.population}}</p>
+    <p>Region: {{country!.region}}</p>
+    <p>Sub region: {{country!.subregion}}</p>
+    <p>Capital: {{country!.capital}}</p>
+    <p>Top level Domain: {{country!.tld}}</p>
+    <p>Currencies: <span *ngFor="let currency of currencies">
+        {{currency}},
     </span></p>
-    <p><span *ngFor="let language of languages">
-        {{language}}
+    <p>Languages: <span *ngFor="let language of languages">
+        {{language}},
     </span></p>
-    <p><span *ngFor="let code of country!.borders">
-        <a routerLink="/detail/{{code}}"><p>{{code}}</p></a>
+    <p>Borders: <span *ngFor="let code of country!.borders">
+        <a routerLink="/detail/{{code}}">{{code}},</a>
     </span></p>
 </div>
 <div *ngIf="!apiDone">

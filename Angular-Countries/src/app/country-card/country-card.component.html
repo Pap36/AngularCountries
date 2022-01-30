@@ -1,11 +1,12 @@
-<a routerLink="/detail/{{country!.cca3}}">
-<mat-card>
-    <img mat-card-image src={{country!.flags.png}}>
-    <mat-card-title>{{country!.name.common}}</mat-card-title>
-    <mat-card-content>
-        <p>Population: {{country!.population}}</p>
-        <p>Region: {{country!.region}}</p>
-        <p>Capital: {{country!.capital[0]}}</p>
-    </mat-card-content>
+
+<div class="container">
+    <mat-card class="card" (click)="navigateTo()">
+        <img mat-card-image src={{country!.flags.png}} class="country-img">
+        <mat-card-title class="width-constraint-title">{{country!.name.common}}</mat-card-title>
+        <mat-card-content class="width-constraint">
+            <div class = "content-text">Population: {{country!.population}}</div>
+            <div class = "content-text">Region: {{country!.region}}</div>
+            <div class = "content-text">Capital: {{country!.capital[0]}}</div>
+        </mat-card-content>
 </mat-card>
-</a>
+</div>

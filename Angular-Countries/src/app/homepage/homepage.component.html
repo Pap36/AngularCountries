@@ -1,8 +1,12 @@
-
-<app-searchbar (searchVal)="updateSearchCriteria($event)"></app-searchbar>
-<div></div>
-<app-filter (regionVal)="updateFilterCriteria($event)"></app-filter>
-<div></div>
+<mat-grid-list cols="4" rowHeight="4:1">
+    <mat-grid-tile class="tile" colspan="2">
+        <app-searchbar (searchVal)="updateSearchCriteria($event)"></app-searchbar>
+    </mat-grid-tile>
+    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile colspan="1">
+        <app-filter (regionVal)="updateFilterCriteria($event)"></app-filter>
+    </mat-grid-tile>
+</mat-grid-list>
 <app-countries-list *ngIf="apiCallDone" [displayedCountries]="filteredCountries"></app-countries-list>
 <div *ngIf="!apiCallDone">
     <app-loading-screen></app-loading-screen>

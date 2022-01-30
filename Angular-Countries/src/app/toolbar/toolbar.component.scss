@@ -1,3 +1,21 @@
 .flex-stretcher {
     flex: 1 0 auto;
 }
+.home:hover {
+    cursor: pointer;
+    color: grey;
+}
+
+.logo {
+    padding-left: 4px;
+    padding-right: 12px;
+    transform: scale(2);
+}
+
+.logo:hover{
+    cursor: pointer;
+}
+
+.logo-stretcher {
+    flex: 0 1 auto;
+}

@@ -1,7 +1,6 @@
 <mat-toolbar>
-    <mat-toolbar-row>
-        <span>Where in the world?</span>
+        <mat-icon svgIcon="logo" class="logo" (click)="backToHome()"></mat-icon>
+        <span class="home" (click)="backToHome()">Where in the world?</span>
         <div class="flex-stretcher"></div>
         <app-dark-mode (click)="changeTheme()"></app-dark-mode>
-    </mat-toolbar-row>
 </mat-toolbar>

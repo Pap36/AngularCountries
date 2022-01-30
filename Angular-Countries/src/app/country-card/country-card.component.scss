@@ -1,0 +1,40 @@
+.card {
+    border-radius: 4px;
+    height: 250px;
+    width: 240px;
+}
+
+.container:hover {
+    box-shadow: 1px 1px 5px gray;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.country-img {
+    width: 272px;
+    height: 140px;
+}
+
+.width-constraint-title {
+    margin-left: 15px;
+    padding-top: 8px;
+    padding-bottom: 2px;
+    margin-right: 15px;
+    width:200px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.width-constraint {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 200px;
+    font-size: smaller;
+}
+
+.content-text {
+    padding: 0;
+}

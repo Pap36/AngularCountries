@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
+import { MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { LoadingScreenComponent } from './loading-screen/loading-screen.componen
     MatCardModule,
     MatGridListModule,
     MatProgressSpinnerModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-<mat-grid-list cols="4">
+<mat-grid-list class="grid" cols="4" rowHeight="1:1" [gutterSize]="'50px'">
     <mat-grid-tile *ngFor="let country of displayedCountries">
         <app-country-card [country]="country"></app-country-card>
     </mat-grid-tile>

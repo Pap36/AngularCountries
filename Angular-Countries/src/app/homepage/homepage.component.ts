@@ -2,6 +2,7 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Country } from '../country';
 import { CountryFindingService } from '../country-finding.service';
 import { SearchbarComponent } from '../searchbar/searchbar.component';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-homepage',
@@ -10,7 +11,8 @@ import { SearchbarComponent } from '../searchbar/searchbar.component';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private countryFinding: CountryFindingService) { }
+  constructor(
+    private countryFinding: CountryFindingService) { }
   private searchVal: string = '';
   private filterVal: string = '';
   apiCallDone: boolean = false;

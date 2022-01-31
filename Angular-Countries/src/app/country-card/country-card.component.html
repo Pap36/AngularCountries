@@ -1,12 +1,12 @@
 
 <div class="container">
-    <mat-card class="card" (click)="navigateTo()">
+    <mat-card class="card" color="primary" (click)="navigateTo()">
         <img mat-card-image src={{country!.flags.png}} class="country-img">
         <mat-card-title class="width-constraint-title">{{country!.name.common}}</mat-card-title>
         <mat-card-content class="width-constraint">
-            <div class = "content-text">Population: {{country!.population}}</div>
-            <div class = "content-text">Region: {{country!.region}}</div>
-            <div class = "content-text">Capital: {{country!.capital[0]}}</div>
+            <div class = "content-text"><span class="bolded">Population:</span> {{formatPopulation()}}</div>
+            <div class = "content-text"><span class="bolded">Region:</span> {{country!.region}}</div>
+            <div class = "content-text"><span class="bolded">Capital:</span> {{formatCapital()}}</div>
         </mat-card-content>
-</mat-card>
+    </mat-card>
 </div>

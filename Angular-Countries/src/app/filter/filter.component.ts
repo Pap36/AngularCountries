@@ -11,7 +11,7 @@ export class FilterComponent implements OnInit {
   @Output() regionVal: EventEmitter<string> = new EventEmitter();
   selectedReg:FormControl = new FormControl();
   regions:string[] = [
-    'Europe', 'Asia', 'Americas', 'Africa', 'Oceania', 'Antarctic', 'Worldwide'
+    'Asia', 'Africa', 'Americas', 'Antarctic', 'Europe', 'Oceania', 'Worldwide'
   ];
   constructor() { }
 

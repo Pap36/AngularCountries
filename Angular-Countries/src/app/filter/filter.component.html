@@ -1,8 +1,10 @@
-<mat-form-field appearance="outline">
-    <mat-label>Filter by region</mat-label>
-    <mat-select [formControl]="selectedReg">
-        <mat-option *ngFor="let region of regions" [value]="region">
-            {{region}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+<div class="general">
+    <mat-form-field class="filter">
+        <mat-label class="label">Filter by Region</mat-label>
+        <mat-select class="select" [formControl]="selectedReg">
+            <mat-option class="option" *ngFor="let region of regions" [value]="region">
+                {{region}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>

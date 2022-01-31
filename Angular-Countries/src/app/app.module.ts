@@ -21,7 +21,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { LoadingScreenComponent } from './loading-screen/loading-screen.component';
 import { MatButtonModule} from '@angular/material/button';
 
 
@@ -36,7 +35,6 @@ import { MatButtonModule} from '@angular/material/button';
     CountriesListComponent,
     CountryCardComponent,
     CountryPageComponent,
-    LoadingScreenComponent
   ],
   imports: [
     BrowserModule,

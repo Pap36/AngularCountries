@@ -1,7 +1,16 @@
-.search {
-    background-color: aqua;
-}
-
 .tile {
     padding: 0;
+}
+
+.flex-stretcher1 {
+    flex: 1 0 auto;
+}
+
+.flex-stretcher2 {
+    flex: 3 0 auto;
+}
+
+.filter {
+    margin-top: 20px;
+    margin-left: 10px;
 }

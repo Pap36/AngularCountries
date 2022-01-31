@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DarkModeComponent } from '../dark-mode/dark-mode.component';
 import { ThemeService } from '../theme.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -19,14 +18,13 @@ const LOGO_ICON = `
 })
 export class ToolbarComponent implements OnInit {
 
-  private isDark: boolean = false;
+  isDark: boolean = false;
+  colour: string = 'red';
 
   ngOnInit(): void {
     this.isDark = this.themeService.isDarkMode(); 
   }
-
   
-
   constructor(
     private themeService: ThemeService,
     private router: Router,
@@ -39,6 +37,7 @@ export class ToolbarComponent implements OnInit {
   changeTheme(): void {
     this.isDark = this.themeService.isDarkMode();
     this.isDark ? this.themeService.update('light-theme') : this.themeService.update('dark-theme');
+    this.isDark = !this.isDark;
   }
 
   backToHome(): void {

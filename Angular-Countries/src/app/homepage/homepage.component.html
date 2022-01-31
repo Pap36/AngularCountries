@@ -1,13 +1,17 @@
 <mat-grid-list cols="4" rowHeight="4:1">
     <mat-grid-tile class="tile" colspan="2">
+        <div class="flex-stretcher1"></div>
         <app-searchbar (searchVal)="updateSearchCriteria($event)"></app-searchbar>
+        <div class="flex-stretcher2"></div>
     </mat-grid-tile>
     <mat-grid-tile></mat-grid-tile>
     <mat-grid-tile colspan="1">
-        <app-filter (regionVal)="updateFilterCriteria($event)"></app-filter>
+        <app-filter class="filter" (regionVal)="updateFilterCriteria($event)"></app-filter>
     </mat-grid-tile>
 </mat-grid-list>
 <app-countries-list *ngIf="apiCallDone" [displayedCountries]="filteredCountries"></app-countries-list>
 <div *ngIf="!apiCallDone">
-    <app-loading-screen></app-loading-screen>
+    <div>
+    <mat-spinner style="margin: 0 auto"></mat-spinner>
+    </div>
 </div>

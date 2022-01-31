@@ -11,6 +11,7 @@ export class ThemeService {
   constructor(rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
   }
+  
 
   onInit() {
     this.getColorTheme();

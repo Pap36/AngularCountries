@@ -1,25 +1,52 @@
 <div>
-    <button mat-raised-button (click)="goBack()"><mat-icon>arrow_back</mat-icon> Back </button>
+    <button color="primary" mat-raised-button (click)="goBack()" class="button"><mat-icon>arrow_back</mat-icon> Back </button>
 </div>
 <div *ngIf="apiDone">
-    <img src={{country!.flags.png}}>
-    <p>{{country!.name.common}}</p>
-    <p>Native Name: {{country!.name.official}}</p>
-    <p>Population: {{country!.population}}</p>
-    <p>Region: {{country!.region}}</p>
-    <p>Sub region: {{country!.subregion}}</p>
-    <p>Capital: {{country!.capital}}</p>
-    <p>Top level Domain: {{country!.tld}}</p>
-    <p>Currencies: <span *ngFor="let currency of currencies">
-        {{currency}},
-    </span></p>
-    <p>Languages: <span *ngFor="let language of languages">
-        {{language}},
-    </span></p>
-    <p>Borders: <span *ngFor="let code of country!.borders">
-        <a routerLink="/detail/{{code}}">{{code}},</a>
-    </span></p>
+    <mat-grid-list cols="2" rowHeight="8:1" [gutterSize]="'20px'">
+        <mat-grid-tile class="tile" rowspan="4">
+            <div class="flex-min-stretcher"></div>
+            <img src={{country!.flags.png}} class="flag">
+            <div class="flex-stretcher"></div>
+        </mat-grid-tile>
+        <mat-grid-tile class="tile" rowspan="3">
+            <div class="content1">
+                <div class="title"> {{country!.name.common}} </div>
+                <div class="content-text"><span class="bolded">Native Name:</span> {{country!.name.official}}</div>
+                <div class="content-text"><span class="bolded">Population:</span> {{formatPopulation()}}</div>
+                <div class="content-text"><span class="bolded">Region:</span> {{country!.region}}</div>
+                <div class="content-text">
+                    <span class="bolded">Sub Region:</span> {{country!.subregion}}
+                </div>
+                <div class="content-text">
+                    <span class="bolded">Capital: </span> {{formatCapital()}}
+                </div>
+            </div>
+            <div class="flex-stretcher"></div>
+            <div class="content2">
+                <div class="content-text"><span class="bolded">Top level Domain:</span> {{formatTLD()}}</div>
+                <div class="content-text">
+                    <span class="bolded">Currencies: </span> {{formatCurrencies()}}
+                </div>
+                <div class="content-text">
+                    <span class="bolded">Languages: </span> {{formatLanguage()}}
+                </div>
+            </div>
+            <div class="flex-stretcher"></div>
+        </mat-grid-tile>
+        <mat-grid-tile class="tile">
+            <div class="bottom-tile">
+                <div class="bottom-side">
+                    <div><span class="bolded">Border Countries:</span> <span *ngFor="let code of country!.borders">
+                        <button color="primary" class="border" mat-raised-button (click)="navigateTo(code)">{{code}}</button>
+                    </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-stretcher"></div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    
 </div>
 <div *ngIf="!apiDone">
-    <app-loading-screen></app-loading-screen>
+    <mat-spinner style="margin: 0 auto"></mat-spinner>
 </div>

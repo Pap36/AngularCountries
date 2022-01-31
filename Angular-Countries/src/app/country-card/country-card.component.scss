@@ -4,8 +4,18 @@
     width: 240px;
 }
 
+.card-dark {
+    border-radius: 4px;
+    height: 250px;
+    width: 240px;
+}
+
 .container:hover {
-    box-shadow: 1px 1px 5px gray;
+    box-shadow: 1px 1px 5px black;
+}
+
+.bolded {
+    font-weight: 500;
 }
 
 .card:hover {
@@ -25,7 +35,7 @@
     width:200px;
     height: 40px;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 550;
 }
 
 .width-constraint {

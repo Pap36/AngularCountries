@@ -5,6 +5,7 @@
 @use './app/country-card/country-card.component-theme' as card;
 @use './app/searchbar/searchbar.component-theme' as search;
 @use './app/filter/filter.component-theme' as filter;
+@use './app/sorting/sorting.component-theme' as sorting;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -129,6 +130,8 @@ $Angular-Countries-theme-dark: mat.define-dark-theme((
   
   @include search.color($Angular-Countries-theme);
   @include filter.color($Angular-Countries-theme);
+  @include sorting.color($Angular-Countries-theme);
+  
   background-color: #fafafa;
 }
 
@@ -137,6 +140,7 @@ $Angular-Countries-theme-dark: mat.define-dark-theme((
   @include card.color($Angular-Countries-theme-dark);
   @include search.color($Angular-Countries-theme-dark);
   @include filter.color($Angular-Countries-theme-dark);
+  @include sorting.color($Angular-Countries-theme-dark);
   background-color: #202d36;
   color: white;
 }

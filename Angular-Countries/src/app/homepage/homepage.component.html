@@ -4,7 +4,9 @@
         <app-searchbar (searchVal)="updateSearchCriteria($event)"></app-searchbar>
         <div class="flex-stretcher2"></div>
     </mat-grid-tile>
-    <mat-grid-tile></mat-grid-tile>
+    <mat-grid-tile colspan="1">
+        <app-sorting class="filter" (orderVal)="updateSortingOrder($event)" (fieldVal)="updateSortingCriteria($event)"></app-sorting>
+    </mat-grid-tile>
     <mat-grid-tile colspan="1">
         <app-filter class="filter" (regionVal)="updateFilterCriteria($event)"></app-filter>
     </mat-grid-tile>

@@ -22,6 +22,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule} from '@angular/material/button';
+import { SortingComponent } from './sorting/sorting.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { MatButtonModule} from '@angular/material/button';
     CountriesListComponent,
     CountryCardComponent,
     CountryPageComponent,
+    SortingComponent,
   ],
   imports: [
     BrowserModule,

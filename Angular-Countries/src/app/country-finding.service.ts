@@ -13,6 +13,8 @@ export class CountryFindingService {
   private allCountries: Country[] = [];
   private searchVal: string = '';
   private regionVal: string = '';
+  private sortField: string = '';
+  private ascending: boolean = true;
   private apiCallDone: boolean = false;
 
   constructor(private http: HttpClient) {}
@@ -47,7 +49,9 @@ export class CountryFindingService {
     return this.http.get<Country>(`${this.target}/alpha/${code}?fields=name,capital,currencies,flags,population,borders,region,subregion,tld,languages,cca3`);
   }
 
-  setFilterParameters(sVal:string, rVal:string){
+  setFilterParameters(sVal:string, rVal:string, sortF: string, asc: boolean){
+    this.sortField = sortF;
+    this.ascending = asc;
     this.searchVal = sVal;
     this.regionVal = rVal;
   }
@@ -62,9 +66,39 @@ export class CountryFindingService {
     return this.apiCallDone;
   }
 
+  private sortMe(filteredCountries: Country[]): Country[] {
+    console.log(this.sortField);
+    switch (this.sortField) {
+      case '':
+        filteredCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        return this.ascending ? filteredCountries : filteredCountries.reverse();
+      case 'Name':
+        filteredCountries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        return this.ascending ? filteredCountries : filteredCountries.reverse();
+      case 'Region':
+        filteredCountries.sort((a, b) => {
+          if(a.region.localeCompare(b.region) == 0){
+            return a.name.common.localeCompare(b.name.common);
+          }
+          return a.region.localeCompare(b.region);
+        });
+        return this.ascending ? filteredCountries : filteredCountries.reverse();
+      case 'Population':
+        filteredCountries.sort((a, b) => {
+          if(a.population == b.population) {
+            if(a.region.localeCompare(b.region) == 0) return a.name.common.localeCompare(b.name.common);
+            return a.region.localeCompare(b.region);
+          }
+          return a.population - b.population
+        });
+        return this.ascending ? filteredCountries : filteredCountries.reverse();
+    }
+    return filteredCountries;
+  }
+
   filterCountries(): Country[]{
-    console.log(this.allCountries);
-    return this.filterC(this.searchVal, this.regionVal);
+    var outPut = this.filterC(this.searchVal, this.regionVal);
+    return this.sortMe(outPut);
   }
 
 

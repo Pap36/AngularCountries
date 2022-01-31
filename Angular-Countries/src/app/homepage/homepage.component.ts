@@ -15,6 +15,8 @@ export class HomepageComponent implements OnInit {
     private countryFinding: CountryFindingService) { }
   private searchVal: string = '';
   private filterVal: string = '';
+  private sortingField: string = '';
+  private ascendingSort: boolean = false;
   apiCallDone: boolean = false;
   filteredCountries?: Country[];
 
@@ -38,19 +40,28 @@ export class HomepageComponent implements OnInit {
   updateSearchCriteria(val: string){
     this.searchVal = val;
     console.log(val);
-    this.updateDisplay(this.searchVal, this.filterVal);
+    this.updateDisplay(this.searchVal, this.filterVal, this.sortingField, this.ascendingSort);
   }
 
   updateFilterCriteria(val: string){
     this.filterVal = val === 'Worldwide' ? '' : val;
     console.log(this.filterVal);
-    this.updateDisplay(this.searchVal, this.filterVal);
+    this.updateDisplay(this.searchVal, this.filterVal, this.sortingField, this.ascendingSort);
   }
 
-  updateDisplay(sVal: string, rVal: string){
-    this.countryFinding.setFilterParameters(sVal, rVal);
+  updateSortingCriteria(val: string){
+    this.sortingField = val;
+    this.updateDisplay(this.searchVal, this.filterVal, this.sortingField, this.ascendingSort);
+  }
+
+  updateSortingOrder(val: boolean){
+    this.ascendingSort = val;
+    this.updateDisplay(this.searchVal, this.filterVal, this.sortingField, this.ascendingSort);
+  }
+
+  updateDisplay(sVal: string, rVal: string, sortF: string, asc: boolean){
+    this.countryFinding.setFilterParameters(sVal, rVal, sortF, asc);
     this.filteredCountries = this.countryFinding.filterCountries();
-    console.log(this.filteredCountries);
   }
 
 }

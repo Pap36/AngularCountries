@@ -1,0 +1,13 @@
+<div class="general">
+    <mat-form-field class="filter">
+        <mat-label class="label">Sort by</mat-label>
+        <mat-select class="select" [formControl]="selectedField">
+            <mat-option class="option" *ngFor="let field of fields" [value]="field">
+                {{field}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <mat-icon *ngIf="up" (click)="toggleIcon()" class="icon" matSuffix>arrow_upward</mat-icon>
+    <mat-icon *ngIf="!up" (click)="toggleIcon()" class="icon" matSuffix>arrow_downward</mat-icon>
+</div>

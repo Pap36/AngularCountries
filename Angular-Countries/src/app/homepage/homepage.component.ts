@@ -14,7 +14,7 @@ export class HomepageComponent implements OnInit {
   private searchVal: string = ''; // value of input field
   private filterVal: string = ''; // value of region to filter by
   private sortingField: string = ''; // value of sorting field
-  private ascendingSort: boolean = false; // value of sorting order
+  private ascendingSort: boolean = true; // value of sorting order
   apiCallDone: boolean = false; // wether the api call is done
   filteredCountries?: Country[]; // all the filtered countries
 

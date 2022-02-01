@@ -16,6 +16,7 @@ export class CountryPageComponent implements OnInit {
   languages: string[] = [];
   currencies: string[] =[];
   apiDone: boolean = false;
+  nativeNames: string[] = [];
 
   formatPopulation(): string {
     const pop: number = Number(this.country?.population);
@@ -56,14 +57,18 @@ export class CountryPageComponent implements OnInit {
       this.country = this.countryFinding.findCountry(codeName);
       const langs = this.country.languages;
       const curr = this.country.currencies;
+      const names = this.country.name.nativeName;
       this.languages = [];
       this.currencies = [];
       Object.entries(langs).forEach(([_, value]) => {
         this.languages.push(String(value));
-      })
+      });
       Object.entries(curr).forEach(([_, value]) => {
         this.currencies.push(String(value['name']));
-      })
+      });
+      Object.entries(names).forEach(([_, value]) => {
+        this.nativeNames.push(String(value['common']));
+      });
     })
   }
 
@@ -74,13 +79,19 @@ export class CountryPageComponent implements OnInit {
         this.country = country;
         const langs = this.country.languages;
         const curr = this.country.currencies;
+        const names = this.country.name.nativeName;
         this.languages = [];
         this.currencies = [];
+
         Object.entries(langs).forEach(([_, value]) => {
           this.languages.push(String(value));
         })
         Object.entries(curr).forEach(([_, value]) => {
           this.currencies.push(String(value['name']));
+        })
+        Object.entries(names).forEach(([_, value]) => {
+          console.log(value);
+          this.nativeNames.push(String(value['common']));
         })
         this.apiDone = true;
       });
@@ -99,7 +110,6 @@ export class CountryPageComponent implements OnInit {
     var cap: string = "";
     var index = 0;
     this.country?.capital.forEach(capit => {
-      console.log(index);
       cap = (index === 0) ? cap.concat(capit) : cap.concat(", ", capit);
       index += 1;
     });
@@ -110,7 +120,6 @@ export class CountryPageComponent implements OnInit {
     var lang: string = "";
     var index = 0;
     this.languages.forEach(language => {
-      console.log(index);
       lang = (index === 0) ? lang.concat(language) : lang.concat(", ", language);
       index += 1;
     });
@@ -121,7 +130,6 @@ export class CountryPageComponent implements OnInit {
     var curr: string = "";
     var index = 0;
     this.currencies.forEach(currency => {
-      console.log(index);
       curr = (index === 0) ? curr.concat(currency) : curr.concat(", ", currency);
       index += 1;
     });
@@ -138,4 +146,7 @@ export class CountryPageComponent implements OnInit {
     return dom;
   }
 
+  formatNativeName(): string {
+    return this.nativeNames[this.nativeNames.length - 1];
+  }
 }

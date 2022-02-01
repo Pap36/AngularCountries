@@ -11,7 +11,7 @@
         <mat-grid-tile class="tile" rowspan="3">
             <div class="content1">
                 <div class="title"> {{country!.name.common}} </div>
-                <div class="content-text"><span class="bolded">Native Name:</span> {{country!.name.official}}</div>
+                <div class="content-text"><span class="bolded">Native Name:</span> {{formatNativeName()}}</div>
                 <div class="content-text"><span class="bolded">Population:</span> {{formatPopulation()}}</div>
                 <div class="content-text"><span class="bolded">Region:</span> {{country!.region}}</div>
                 <div class="content-text">

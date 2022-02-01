@@ -4,6 +4,7 @@ import { ThemeService } from '../theme.service';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
+// alpega logo
 const LOGO_ICON = `
   <?xml version="1.0" encoding="utf-8"?>
   <svg viewBox="0.0 0.0 125.103 84.7" width="125.103px" height="84.7px" xmlns="http://www.w3.org/2000/svg">
@@ -18,12 +19,7 @@ const LOGO_ICON = `
 })
 export class ToolbarComponent implements OnInit {
 
-  isDark: boolean = false;
-  colour: string = 'red';
-
-  ngOnInit(): void {
-    this.isDark = this.themeService.isDarkMode(); 
-  }
+  isDark: boolean = false; // wether current theme is dark or not 
   
   constructor(
     private themeService: ThemeService,
@@ -34,12 +30,28 @@ export class ToolbarComponent implements OnInit {
     iconRegistry.addSvgIconLiteral('logo', sanitizer.bypassSecurityTrustHtml(LOGO_ICON));
   }
 
+  ngOnInit(): void {
+    this.isDark = this.themeService.isDarkMode(); 
+  }
+
+  /**
+   * changeTheme(): void
+   * change the theme according to the current one
+   * from light -> dark
+   * or
+   * from dark -> light
+   */
   changeTheme(): void {
     this.isDark = this.themeService.isDarkMode();
     this.isDark ? this.themeService.update('light-theme') : this.themeService.update('dark-theme');
+    // make sure to update the value of isDark
     this.isDark = !this.isDark;
   }
 
+  /**
+   * backToHome(): void
+   * navigates back to homepage
+   */
   backToHome(): void {
     this.router.navigateByUrl('');
   }

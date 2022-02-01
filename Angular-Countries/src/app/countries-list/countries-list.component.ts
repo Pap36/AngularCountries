@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Country } from '../country';
-import { CountryFindingService } from '../country-finding.service';
-import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-countries-list',
@@ -10,7 +8,7 @@ import { ThemeService } from '../theme.service';
 })
 export class CountriesListComponent implements OnInit {
 
-  @Input() displayedCountries?: Country[];
+  @Input() displayedCountries?: Country[]; // the list of countries to be displayed
   constructor() { }
 
   ngOnInit(): void {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-dark-mode',

@@ -8,11 +8,12 @@ import { FormControl } from '@angular/forms';
 })
 export class SearchbarComponent implements OnInit {
 
-  @Output() searchVal: EventEmitter<string> = new EventEmitter();
-  searchControl: FormControl = new FormControl();
+  @Output() searchVal: EventEmitter<string> = new EventEmitter(); // emits the value of the input field
+  searchControl: FormControl = new FormControl(); // listens to changes on the input field
   constructor() { }
 
   ngOnInit(): void {
+    // listen to the input field
     this.searchControl.valueChanges.subscribe(value => {
       this.searchVal.emit(value);
     })

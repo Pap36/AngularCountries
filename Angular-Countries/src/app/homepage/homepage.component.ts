@@ -19,8 +19,8 @@ export class HomepageComponent implements OnInit {
   filteredCountries?: Country[]; // all the filtered countries
 
   ngOnInit(): void {
+    console.log("Init");
     // first check wheher the api call has been completed by asking the service
-    this.apiCallDone = this.countryFinding.getApiCAll();
     if(this.apiCallDone) this.getCountries(); // we can get the list of the countries displayed
     else {
       // we need to get the observable and wait for the api call to finish
@@ -41,6 +41,9 @@ export class HomepageComponent implements OnInit {
    * store the list of only the countries which should be displayed
    */
   getCountries(): void {
+    // reset homepage every time to initial parameters and all countries
+    // not ideal I know...
+    this.countryFinding.setFilterParameters('', '', '', true);
     this.filteredCountries = this.countryFinding.filterCountries();
   }
 
